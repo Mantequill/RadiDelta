@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://v6h6thuygapg"]
+[gd_scene load_steps=3 format=3 uid="uid://dsesyigr1a3yc"]
 
-[ext_resource type="Script" uid="uid://dth3bq7jivoby" path="res://02_scenes/03_levels/escenario.gd" id="1_qhaml"]
+[ext_resource type="Script" path="res://02_scenes/03_levels/escenario.gd" id="1_qhaml"]
 [ext_resource type="PackedScene" uid="uid://bvyf4bfp0uedp" path="res://02_scenes/01_characters/player.tscn" id="2_xuf5r"]
 
 [node name="escenario" type="Node2D"]

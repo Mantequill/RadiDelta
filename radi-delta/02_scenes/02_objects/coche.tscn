@@ -1,20 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://tb555uib613j"]
+[gd_scene load_steps=4 format=3 uid="uid://tb555uib613j"]
 
 [ext_resource type="Texture2D" uid="uid://bj0g4vmpysxxw" path="res://01_assets/01_sprites/cochePlaceholder.jpg" id="1_27wkq"]
+[ext_resource type="Script" uid="uid://c8kgde1ic1jtv" path="res://02_scenes/02_objects/coche.gd" id="1_xl1ur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8q56x"]
 size = Vector2(199, 115)
 
-[node name="Coche" type="Node2D"]
+[node name="Coche" type="Node2D" node_paths=PackedStringArray("mySprite")]
+script = ExtResource("1_xl1ur")
+mySprite = NodePath("Car_sprite")
+myImage = ExtResource("1_27wkq")
 
-[node name="CochePlaceholder" type="Sprite2D" parent="."]
+[node name="Car_sprite" type="Sprite2D" parent="."]
 position = Vector2(41, 3)
 scale = Vector2(0.45141065, 0.53499997)
 texture = ExtResource("1_27wkq")
 
-[node name="CocheArea" type="Area2D" parent="."]
+[node name="Car_area01" type="Area2D" parent="."]
 position = Vector2(44, 74)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CocheArea"]
+[node name="Car_hitbox" type="CollisionShape2D" parent="Car_area01"]
 position = Vector2(-6, -67)
 shape = SubResource("RectangleShape2D_8q56x")
