@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvwly8tgjjfju"]
+[gd_scene load_steps=4 format=3 uid="uid://bvwly8tgjjfju"]
 
 [ext_resource type="Script" uid="uid://bi4hffro6hw1v" path="res://02_scenes/04_screens/rules.gd" id="1_l8ugq"]
 [ext_resource type="Texture2D" uid="uid://c0yf2x4a1he3j" path="res://01_assets/01_sprites/Ruruskaado.webp" id="1_sq6qb"]
+[ext_resource type="Texture2D" uid="uid://bic3ovxoh2ig0" path="res://01_assets/01_sprites/Controles.png" id="3_xn3aa"]
 
 [node name="Rules" type="Node2D"]
 script = ExtResource("1_l8ugq")
 
-[node name="rules" type="Sprite2D" parent="."]
-position = Vector2(932.99994, 566)
-scale = Vector2(0.5577272, 0.7775)
-texture = ExtResource("1_sq6qb")
+[node name="Controles" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_xn3aa")
 
 [node name="back" type="Button" parent="."]
 offset_left = 1655.0
@@ -18,5 +18,11 @@ offset_right = 1860.0
 offset_bottom = 1026.0
 text = "Atrás
 "
+
+[node name="rules" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.015686275)
+position = Vector2(932.99994, 566)
+scale = Vector2(0.5577272, 0.7775)
+texture = ExtResource("1_sq6qb")
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsvc8iwgft7e5"]
+
+[ext_resource type="Texture2D" uid="uid://cbeawjt04g1q2" path="res://01_assets/01_sprites/60ba43af56e5d76c6cd25031dcc390da.jpg" id="1_acnr1"]
+
+[node name="PlayMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NumCandy" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1761.0
+offset_top = 95.0
+offset_right = 1898.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1761.0
+offset_top = 36.0
+offset_right = 1863.0
+offset_bottom = 91.0
+theme_override_font_sizes/font_size = 40
+text = "00:00"
+
+[node name="60Ba43Af56e5d76c6Cd25031Dcc390Da" type="Sprite2D" parent="."]
+position = Vector2(1733.0001, 124)
+scale = Vector2(0.050611407, 0.0506114)
+texture = ExtResource("1_acnr1")

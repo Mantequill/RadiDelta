@@ -2,6 +2,7 @@ extends Node2D
 
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://02_scenes/05_others/qte.tscn")
+	#cambiar esto en algún momento....
 
 
 func _on_rules_pressed() -> void:

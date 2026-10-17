@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b51ugxwelg4ij"]
+[gd_scene load_steps=7 format=3 uid="uid://b51ugxwelg4ij"]
 
 [ext_resource type="Script" uid="uid://babnc6cfsqoy3" path="res://02_scenes/04_screens/main_menu.gd" id="1_3kh57"]
-[ext_resource type="Texture2D" uid="uid://b6ur77iwbd02e" path="res://01_assets/01_sprites/busPlaceholder.jpg" id="2_1swjj"]
+[ext_resource type="Texture2D" uid="uid://byeacr5bh3j76" path="res://01_assets/01_sprites/MenuFondo.png" id="2_5oke2"]
 [ext_resource type="AudioStream" uid="uid://lc3sox8ksuc2" path="res://01_assets/03_sound/01_sfx/deadsound.mp3" id="2_7uqsd"]
-[ext_resource type="Texture2D" uid="uid://dtqq3asgck8ym" path="res://icon.svg" id="3_qpxf1"]
+[ext_resource type="Texture2D" uid="uid://brugjbggjn5xc" path="res://01_assets/01_sprites/BotonJugar.png" id="3_3644c"]
+[ext_resource type="Texture2D" uid="uid://drdn6u4bqh42k" path="res://01_assets/01_sprites/botonControles.png" id="4_xh1ow"]
+[ext_resource type="Texture2D" uid="uid://c50dmo7whs0ui" path="res://01_assets/01_sprites/botonSalir.png" id="5_50jg3"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_3kh57")
@@ -11,15 +13,8 @@ script = ExtResource("1_3kh57")
 [node name="background" type="TextureRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_1swjj")
+texture = ExtResource("2_5oke2")
 expand_mode = 2
-
-[node name="logo" type="TextureRect" parent="."]
-offset_left = 545.0
-offset_top = 119.0
-offset_right = 1451.0
-offset_bottom = 371.0
-texture = ExtResource("3_qpxf1")
 
 [node name="ButtonManager" type="Control" parent="."]
 layout_mode = 3
@@ -27,37 +22,37 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Start" type="Button" parent="ButtonManager"]
+[node name="Start" type="TextureButton" parent="ButtonManager"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 778.0
-offset_top = 476.0
-offset_right = 1182.0
-offset_bottom = 612.0
+offset_left = 697.0
+offset_top = 444.0
+offset_right = 1226.0
+offset_bottom = 610.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 0)
-text = "Empezar"
+texture_normal = ExtResource("3_3644c")
 
-[node name="Rules" type="Button" parent="ButtonManager"]
+[node name="Rules" type="TextureButton" parent="ButtonManager"]
 layout_mode = 0
-offset_left = 846.0
-offset_top = 672.0
-offset_right = 1161.0
-offset_bottom = 801.0
-text = "Instrucciones"
+offset_left = 718.0
+offset_top = 642.0
+offset_right = 1252.0
+offset_bottom = 794.0
+texture_normal = ExtResource("4_xh1ow")
 
-[node name="Quit" type="Button" parent="ButtonManager"]
+[node name="Quit" type="TextureButton" parent="ButtonManager"]
 layout_mode = 0
-offset_left = 846.0
-offset_top = 840.0
-offset_right = 1169.0
-offset_bottom = 961.0
-text = "Salir"
+offset_left = 800.0
+offset_top = 815.0
+offset_right = 1185.0
+offset_bottom = 969.0
+texture_normal = ExtResource("5_50jg3")
 
 [node name="Deadsound" type="AudioStreamPlayer" parent="ButtonManager"]
 stream = ExtResource("2_7uqsd")
