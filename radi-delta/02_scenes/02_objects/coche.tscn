@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://tb555uib613j"]
+
+[ext_resource type="Texture2D" uid="uid://bj0g4vmpysxxw" path="res://01_assets/01_sprites/cochePlaceholder.jpg" id="1_27wkq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8q56x"]
+size = Vector2(199, 115)
+
+[node name="Coche" type="Node2D"]
+
+[node name="CochePlaceholder" type="Sprite2D" parent="."]
+position = Vector2(41, 3)
+scale = Vector2(0.45141065, 0.53499997)
+texture = ExtResource("1_27wkq")
+
+[node name="CocheArea" type="Area2D" parent="."]
+position = Vector2(44, 74)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CocheArea"]
+position = Vector2(-6, -67)
+shape = SubResource("RectangleShape2D_8q56x")
