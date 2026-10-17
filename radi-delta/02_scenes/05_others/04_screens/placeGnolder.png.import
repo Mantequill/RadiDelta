@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ofp8iwggfdoe"
-path="res://.godot/imported/placeGnolder.png-24ba1487e1d748fafd3db332d080b189.ctex"
+path="res://.godot/imported/placeGnolder.png-92b9232fd10678dab31b132d6f75849b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://02_scenes/04_screens/placeGnolder.png"
-dest_files=["res://.godot/imported/placeGnolder.png-24ba1487e1d748fafd3db332d080b189.ctex"]
+source_file="res://02_scenes/05_others/04_screens/placeGnolder.png"
+dest_files=["res://.godot/imported/placeGnolder.png-92b9232fd10678dab31b132d6f75849b.ctex"]
 
 [params]
 

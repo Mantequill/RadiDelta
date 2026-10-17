@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://b3l5kio0tavhm"]
+[gd_scene load_steps=3 format=3 uid="uid://b3l5kio0tavhm"]
+
+[ext_resource type="PackedScene" uid="uid://v6h6thuygapg" path="res://02_scenes/02_objects/spawner.tscn" id="1_xnd6g"]
+[ext_resource type="PackedScene" uid="uid://bvyf4bfp0uedp" path="res://02_scenes/01_characters/player.tscn" id="2_btoap"]
 
 [node name="main" type="Node2D"]
+
+[node name="spawner" parent="." instance=ExtResource("1_xnd6g")]
+
+[node name="Player" parent="." instance=ExtResource("2_btoap")]
+
+[node name="PlayerCamera" type="Camera2D" parent="Player"]
+offset = Vector2(960, 540)
