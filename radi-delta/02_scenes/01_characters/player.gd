@@ -1,15 +1,23 @@
 extends Node2D
 
+const SPAWN_HEIGHT = 456 #copiado de spawner
+const SPAWN_ADD = 237
+
 const MOVE_SPEED = 500
+
+var scroll_speed = 100
 
 var t = 0.0
 
 var lane_array = []
-var current_lane = 0
+var current_lane = 1
 var lane_cd_over = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	lane_array = [$TopLane, $MidLane, $BotLane]
+	$TopLane.position.y = SPAWN_HEIGHT
+	$MidLane.position.y = SPAWN_HEIGHT + SPAWN_ADD
+	$BotLane.position.y = SPAWN_HEIGHT + (SPAWN_ADD*2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	t += delta *0.005
@@ -31,6 +39,7 @@ func _process(delta):
 		lane_cd_over = false
 		$lane_cd.start()
 	player_body.position = player_body.position.lerp($move_target.position, t) #interpolar posición actual de gnomo con posición objetivo.
+	$".".position.x += scroll_speed*t # mover cámara
 
 func _on_lane_cd_timeout() -> void:
 	lane_cd_over = true
