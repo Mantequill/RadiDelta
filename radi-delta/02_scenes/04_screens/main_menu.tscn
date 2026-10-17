@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://b51ugxwelg4ij"]
+
+[ext_resource type="Script" uid="uid://babnc6cfsqoy3" path="res://02_scenes/04_screens/main_menu.gd" id="1_3kh57"]
+[ext_resource type="Texture2D" uid="uid://b6ur77iwbd02e" path="res://01_assets/01_sprites/busPlaceholder.jpg" id="2_1swjj"]
+[ext_resource type="AudioStream" uid="uid://lc3sox8ksuc2" path="res://01_assets/03_sound/01_sfx/deadsound.mp3" id="2_7uqsd"]
+[ext_resource type="Texture2D" uid="uid://dtqq3asgck8ym" path="res://icon.svg" id="3_qpxf1"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_3kh57")
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_1swjj")
+expand_mode = 2
+
+[node name="logo" type="TextureRect" parent="."]
+offset_left = 545.0
+offset_top = 119.0
+offset_right = 1451.0
+offset_bottom = 371.0
+texture = ExtResource("3_qpxf1")
+
+[node name="ButtonManager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="ButtonManager"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 778.0
+offset_top = 476.0
+offset_right = 1182.0
+offset_bottom = 612.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 0)
+text = "Empezar"
+
+[node name="Rules" type="Button" parent="ButtonManager"]
+layout_mode = 0
+offset_left = 846.0
+offset_top = 672.0
+offset_right = 1161.0
+offset_bottom = 801.0
+text = "Instrucciones"
+
+[node name="Quit" type="Button" parent="ButtonManager"]
+layout_mode = 0
+offset_left = 846.0
+offset_top = 840.0
+offset_right = 1169.0
+offset_bottom = 961.0
+text = "Salir"
+
+[node name="Deadsound" type="AudioStreamPlayer" parent="ButtonManager"]
+stream = ExtResource("2_7uqsd")
+
+[connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonManager/Rules" to="." method="_on_rules_pressed"]
+[connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]
+[connection signal="finished" from="ButtonManager/Deadsound" to="." method="_on_deadsound_finished"]
