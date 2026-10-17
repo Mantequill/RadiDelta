@@ -12,15 +12,16 @@ height = 142.0
 script = ExtResource("1_8nxsv")
 
 [node name="TopLane" type="Marker2D" parent="."]
-position = Vector2(0, -500)
+position = Vector2(596, -112)
 gizmo_extents = 14.2
 
 [node name="MidLane" type="Marker2D" parent="."]
+position = Vector2(589, 184.00002)
 scale = Vector2(3.0909088, 4.3970585)
 gizmo_extents = 14.2
 
 [node name="BotLane" type="Marker2D" parent="."]
-position = Vector2(-194.99998, 294)
+position = Vector2(581.00006, 397)
 scale = Vector2(3.0909088, 4.3970585)
 gizmo_extents = 14.2
 
@@ -34,8 +35,6 @@ texture = ExtResource("1_un0qr")
 [node name="PlayerColli" type="CollisionShape2D" parent="PlayerBody"]
 position = Vector2(3, -3)
 shape = SubResource("CapsuleShape2D_8nxsv")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="lane_cd" type="Timer" parent="."]
 wait_time = 0.1
