@@ -10,7 +10,6 @@ var lane_cd_over = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	lane_array = [$TopLane, $MidLane, $BotLane]
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	t += delta *0.005

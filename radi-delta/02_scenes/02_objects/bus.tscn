@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://df21s516fynkv"]
+
+[ext_resource type="PackedScene" uid="uid://tb555uib613j" path="res://02_scenes/02_objects/coche.tscn" id="1_cyq0s"]
+[ext_resource type="Texture2D" uid="uid://b6ur77iwbd02e" path="res://01_assets/01_sprites/busPlaceholder.jpg" id="2_fvyls"]
+
+[node name="Coche" instance=ExtResource("1_cyq0s")]
+move_speed = 1500
+myImage = ExtResource("2_fvyls")
