@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx1f42v2erfw0"]
+
+[ext_resource type="Texture2D" uid="uid://3g7svh06vgpi" path="res://01_assets/01_sprites/collectible_placeholder.png" id="1_y26p0"]
+[ext_resource type="Script" uid="uid://c2c00lhsumxnr" path="res://02_scenes/02_objects/collectible.gd" id="1_ymyi7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y26p0"]
+
+[node name="collectible" type="Node2D" node_paths=PackedStringArray("mySprite")]
+script = ExtResource("1_ymyi7")
+mySprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_y26p0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_y26p0")
