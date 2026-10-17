@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://v6h6thuygapg"]
+[gd_scene load_steps=3 format=3 uid="uid://v6h6thuygapg"]
 
 [ext_resource type="Script" uid="uid://dth3bq7jivoby" path="res://02_scenes/02_objects/spawner.gd" id="1_qhaml"]
-[ext_resource type="Texture2D" uid="uid://ducio74g4hte5" path="res://01_assets/01_sprites/bgPlaceholder01.png" id="2_kjewb"]
 [ext_resource type="Texture2D" uid="uid://caxw7cy6p2xk8" path="res://04_game/placeGnolder.png" id="3_aa2pn"]
 
 [node name="spawner" type="Node2D"]
@@ -21,10 +20,6 @@ autostart = true
 
 [node name="spawn_timer_collectible" type="Timer" parent="."]
 autostart = true
-
-[node name="BgPlaceholder01" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("2_kjewb")
 
 [node name="marker01" type="Marker2D" parent="."]
 scale = Vector2(50, 50)
