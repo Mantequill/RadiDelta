@@ -10,12 +10,28 @@ height = 240.0
 [node name="Player" type="Node2D"]
 script = ExtResource("1_8nxsv")
 
+[node name="TopLane" type="Marker2D" parent="."]
+position = Vector2(1076.8909, 71.4382)
+scale = Vector2(3.0909088, 4.3970585)
+gizmo_extents = 14.2
+
+[node name="MidLane" type="Marker2D" parent="."]
+position = Vector2(1076.8909, 480.4382)
+scale = Vector2(3.0909088, 4.3970585)
+gizmo_extents = 14.2
+
+[node name="BotLane" type="Marker2D" parent="."]
+position = Vector2(1066.8909, 896.4381)
+scale = Vector2(3.0909088, 4.3970585)
+gizmo_extents = 14.2
+
 [node name="PlayerBody" type="CharacterBody2D" parent="."]
+position = Vector2(336, 501)
 
-[node name="PlayerColli" type="CollisionShape2D" parent="PlayerBody"]
-shape = SubResource("CapsuleShape2D_8nxsv")
-
-[node name="placeGnolder" type="Sprite2D" parent="."]
+[node name="placeGnolder" type="Sprite2D" parent="PlayerBody"]
 position = Vector2(2.0000076, -5.0000076)
 scale = Vector2(3.0909088, 4.3970585)
 texture = ExtResource("1_un0qr")
+
+[node name="PlayerColli" type="CollisionShape2D" parent="PlayerBody"]
+shape = SubResource("CapsuleShape2D_8nxsv")
