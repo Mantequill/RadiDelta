@@ -6,3 +6,5 @@
 [node name="Coche" instance=ExtResource("1_cyq0s")]
 move_speed = 1500
 myImage = ExtResource("2_fvyls")
+
+[node name="Car_area01" parent="." index="0" groups=["bus"]]
