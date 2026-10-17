@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://v6h6thuygapg"]
+[gd_scene load_steps=5 format=3 uid="uid://v6h6thuygapg"]
 
 [ext_resource type="Script" uid="uid://dth3bq7jivoby" path="res://02_scenes/02_objects/spawner.gd" id="1_qhaml"]
 [ext_resource type="Texture2D" uid="uid://caxw7cy6p2xk8" path="res://04_game/placeGnolder.png" id="3_aa2pn"]
+[ext_resource type="Texture2D" uid="uid://dtqq3asgck8ym" path="res://icon.svg" id="3_yeex3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjewb"]
+size = Vector2(117, 1151)
 
 [node name="spawner" type="Node2D"]
 script = ExtResource("1_qhaml")
@@ -45,7 +49,20 @@ texture = ExtResource("3_aa2pn")
 
 [node name="misPasosDeCebra" type="Node2D" parent="."]
 
+[node name="killzone" type="Area2D" parent="."]
+position = Vector2(75, 0)
+
+[node name="Icon" type="Sprite2D" parent="killzone"]
+position = Vector2(-51, 530)
+scale = Vector2(0.65625, 8.90625)
+texture = ExtResource("3_yeex3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(-68.5, 535.5)
+shape = SubResource("RectangleShape2D_kjewb")
+
 [connection signal="timeout" from="spawn_timer_cars" to="." method="_on_spawn_timer_cars"]
 [connection signal="timeout" from="spawn_timer_buses" to="." method="_on_spawn_timer_buses"]
 [connection signal="timeout" from="spawn_timer_crossroads" to="." method="_on_spawn_timer_crossroads"]
 [connection signal="timeout" from="spawn_timer_collectible" to="." method="_on_spawn_timer_collectible"]
+[connection signal="area_entered" from="killzone" to="." method="_on_killzone_area_entered"]
