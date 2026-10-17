@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvyf4bfp0uedp"]
+
+[ext_resource type="Texture2D" uid="uid://dtqq3asgck8ym" path="res://icon.svg" id="1_un0qr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nxsv"]
+
+[node name="Player" type="Node2D"]
+
+[node name="PlayerBody" type="CharacterBody2D" parent="."]
+
+[node name="PlayerColli" type="CollisionShape2D" parent="PlayerBody"]
+shape = SubResource("CapsuleShape2D_8nxsv")
+
+[node name="gnorberto" type="Sprite2D" parent="."]
+position = Vector2(0.5000001, 0.5000005)
+scale = Vector2(0.07031251, 0.21093749)
+texture = ExtResource("1_un0qr")
