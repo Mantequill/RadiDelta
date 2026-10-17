@@ -1,11 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvyf4bfp0uedp"]
+[gd_scene load_steps=5 format=3 uid="uid://bvyf4bfp0uedp"]
 
 [ext_resource type="Script" uid="uid://bvp5tjh2yftxs" path="res://02_scenes/01_characters/player.gd" id="1_8nxsv"]
 [ext_resource type="Texture2D" uid="uid://dnc8gcuylqv23" path="res://01_assets/01_sprites/placeGnolder.png" id="1_un0qr"]
+[ext_resource type="Texture2D" uid="uid://dtqq3asgck8ym" path="res://icon.svg" id="3_e8lch"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nxsv"]
-radius = 71.0
-height = 240.0
+radius = 51.0
+height = 142.0
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_8nxsv")
@@ -19,7 +20,7 @@ scale = Vector2(3.0909088, 4.3970585)
 gizmo_extents = 14.2
 
 [node name="BotLane" type="Marker2D" parent="."]
-position = Vector2(0, 500)
+position = Vector2(-194.99998, 294)
 scale = Vector2(3.0909088, 4.3970585)
 gizmo_extents = 14.2
 
@@ -31,11 +32,17 @@ scale = Vector2(3.0909088, 4.3970585)
 texture = ExtResource("1_un0qr")
 
 [node name="PlayerColli" type="CollisionShape2D" parent="PlayerBody"]
+position = Vector2(3, -3)
 shape = SubResource("CapsuleShape2D_8nxsv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="lane_cd" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="move_target" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -1)
+texture = ExtResource("3_e8lch")
 
 [connection signal="timeout" from="lane_cd" to="." method="_on_lane_cd_timeout"]
