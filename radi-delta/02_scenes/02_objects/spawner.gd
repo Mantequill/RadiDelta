@@ -6,6 +6,7 @@ const SPAWN_WIDTH = SCREEN_WIDTH - 200
 const SPAWN_HEIGHT = 456
 const SPAWN_ADD = 237
 
+@onready var static_holder = $"../../staticChildHolder" #cuidado con crossroads
 var SPAWN_MID = Vector2(0,0)
 var ROAD_ARRAY = []
 var car = preload("res://02_scenes/02_objects/coche.tscn") 
@@ -28,30 +29,38 @@ func _ready():
 
 func _on_spawn_timer_cars():
 	if $misPasosDeCebra.get_child_count() <= 0:
-		var stage_node = get_parent() #no necesario
+		#var stage_node = get_parent() #no necesario
 		var car_instance = car.instantiate()
-		car_instance.position = Vector2(ROAD_ARRAY.pick_random())	
-		stage_node.add_child(car_instance)
+		car_instance.position = ROAD_ARRAY.pick_random()
+		car_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH
+		static_holder.add_child(car_instance)
 
 func _on_spawn_timer_buses():
-	var stage_node = get_parent() #no necesario
+	#var stage_node = get_parent() #no necesario
 	var bus_instance = bus.instantiate()
-	bus_instance.position = Vector2(ROAD_ARRAY.pick_random())	
-	stage_node.add_child(bus_instance)
+	bus_instance.position = ROAD_ARRAY.pick_random()
+	bus_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH
+	static_holder.add_child(bus_instance)
 
 func _on_spawn_timer_crossroads():
-	var stage_node = get_parent() #no necesario
+	#var stage_node = get_parent() #no necesario
 	var crossroad_instance = crossroad.instantiate()
-	crossroad_instance.position = Vector2(SPAWN_MID)	
+	crossroad_instance.position = SPAWN_MID
+	crossroad_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH
 	#stage_node.add_child(crossroad_instance)
 	$misPasosDeCebra.add_child(crossroad_instance)
 
 func _on_spawn_timer_collectible():
-	var stage_node = get_parent() #no necesario
+	#var stage_node = get_parent() #no necesario
 	var collectible_instance = collectible.instantiate()
-	collectible_instance.position = Vector2(ROAD_ARRAY.pick_random())	
-	stage_node.add_child(collectible_instance)
+	collectible_instance.position = ROAD_ARRAY.pick_random()
+	collectible_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH
+	static_holder.add_child(collectible_instance)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_killzone_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
