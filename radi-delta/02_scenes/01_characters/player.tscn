@@ -1,14 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvyf4bfp0uedp"]
+[gd_scene load_steps=8 format=3 uid="uid://bvyf4bfp0uedp"]
 
 [ext_resource type="Script" uid="uid://bvp5tjh2yftxs" path="res://02_scenes/01_characters/player.gd" id="1_8nxsv"]
 [ext_resource type="Texture2D" uid="uid://dnc8gcuylqv23" path="res://01_assets/01_sprites/placeGnolder.png" id="1_un0qr"]
 [ext_resource type="Texture2D" uid="uid://dtqq3asgck8ym" path="res://icon.svg" id="3_e8lch"]
+[ext_resource type="Texture2D" uid="uid://b8ow74ljnb0bf" path="res://01_assets/01_sprites/kid_placeholder.png" id="4_nd3oh"]
+[ext_resource type="Texture2D" uid="uid://twbtqc4tlghu" path="res://01_assets/01_sprites/collectible2_placeholder.png" id="5_uokla"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8lch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nd3oh")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_un0qr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_uokla")
+}],
+"loop": true,
+"name": &"steal",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nxsv"]
 radius = 51.0
 height = 142.0
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" groups=["player"]]
 script = ExtResource("1_8nxsv")
 
 [node name="TopLane" type="Marker2D" parent="."]
@@ -25,17 +54,6 @@ position = Vector2(581.00006, 397)
 scale = Vector2(3.0909088, 4.3970585)
 gizmo_extents = 14.2
 
-[node name="PlayerBody" type="CharacterBody2D" parent="."]
-
-[node name="placeGnolder" type="Sprite2D" parent="PlayerBody"]
-position = Vector2(2, -5)
-scale = Vector2(3.0909088, 4.3970585)
-texture = ExtResource("1_un0qr")
-
-[node name="PlayerColli" type="CollisionShape2D" parent="PlayerBody"]
-position = Vector2(3, -3)
-shape = SubResource("CapsuleShape2D_8nxsv")
-
 [node name="lane_cd" type="Timer" parent="."]
 wait_time = 0.1
 
@@ -44,4 +62,23 @@ visible = false
 position = Vector2(1, -1)
 texture = ExtResource("3_e8lch")
 
+[node name="PlayerArea" type="Area2D" parent="."]
+
+[node name="gnolderSprite" type="AnimatedSprite2D" parent="PlayerArea"]
+position = Vector2(1.5, -3.500002)
+scale = Vector2(0.2, 0.35)
+sprite_frames = SubResource("SpriteFrames_e8lch")
+animation = &"steal"
+autoplay = "default"
+
+[node name="PlayerColli" type="CollisionShape2D" parent="PlayerArea"]
+position = Vector2(3, -3)
+shape = SubResource("CapsuleShape2D_8nxsv")
+
+[node name="timer_hit" type="Timer" parent="."]
+wait_time = 1.7999999999999998
+autostart = true
+
 [connection signal="timeout" from="lane_cd" to="." method="_on_lane_cd_timeout"]
+[connection signal="area_entered" from="PlayerArea" to="." method="_on_player_area_entered"]
+[connection signal="timeout" from="timer_hit" to="." method="_on_timer_hit_timeout"]
