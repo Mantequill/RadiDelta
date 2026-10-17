@@ -1,12 +1,17 @@
 extends Node2D
 
 @export var mySprite = Sprite2D
-@export var myImage = ["res://01_assets/01_sprites/collectible_placeholder.png","res://01_assets/01_sprites/collectible2_placeholder.png","res://01_assets/01_sprites/collectible3_placeholder.png"]
-var myTexture = Texture2D
+var myTextures: Array = [
+	preload("res://01_assets/01_sprites/collectible_placeholder.png"),
+	preload("res://01_assets/01_sprites/collectible2_placeholder.png"),
+	preload("res://01_assets/01_sprites/collectible3_placeholder.png")
+]
+var myImage = Texture2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	myTexture = myImage.pick_random()
-	mySprite.texture = myTexture
+	print("SPAWN")
+	myImage = myTextures.pick_random()
+	mySprite.texture = myImage
 	pass # Replace with function body.
 
 
