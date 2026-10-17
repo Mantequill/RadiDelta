@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj5v3yla0auyq"]
+
+[ext_resource type="Script" path="res://02_scenes/05_others/qte.gd" id="1_ist4l"]
+[ext_resource type="Shader" uid="uid://0s2vmcbwauo6" path="res://01_assets/04_material/qte.gdshader" id="2_ist4l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5xp2"]
+resource_local_to_scene = true
+shader = ExtResource("2_ist4l")
+shader_parameter/first_color = Color(0.91035724, 0.4287896, 0.857042, 1)
+shader_parameter/second_color = Color(0.6689507, 0.46919656, 0, 1)
+shader_parameter/third_color = Color(0, 0.5883929, 0.5883928, 1)
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/unfilled_color = Color(0.443, 0.443, 0.443, 1)
+shader_parameter/value = 1.0
+shader_parameter/smooth_ = 0.005
+shader_parameter/width_in = 0.79
+shader_parameter/width_out = 0.95
+shader_parameter/border_width = 0.03
+
+[node name="Qte" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ist4l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_q5xp2")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KeyLabel" type="Label" parent="ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -34.5
+offset_right = 20.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 50
+text = "Q"
+
+[node name="SuccessLabel" type="Label" parent="ColorRect"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -45.0
+offset_right = 58.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.43633232
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 50
+text = "Perfe!!1!"
