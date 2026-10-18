@@ -66,6 +66,7 @@ wait_time = 7.0
 autostart = true
 
 [node name="spawn_timer_collectible" type="Timer" parent="."]
+wait_time = 11.0
 autostart = true
 
 [node name="spawn_timer_main_road" type="Timer" parent="."]

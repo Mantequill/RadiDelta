@@ -36,12 +36,12 @@ func _ready() -> void:
 		myImage = myTexturesBus.pick_random()
 		mySprite.texture = myImage
 		
-	if not isCar:
-		pass
+	#if not isCar:
+		#_on_cooldown_bus()
 	pass # Replace with function body.
 
 func _on_cooldown_bus():
-	position = Vector2(0,0)
+	position.x = 0
 # Called when the node enters the scene tree for the first time.
 #func _ready() -> void:
 #	carNum = randi() % 4

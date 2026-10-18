@@ -396,6 +396,7 @@ texture = ExtResource("3_e8lch")
 [node name="PlayerArea" type="Area2D" parent="." groups=["player02"]]
 
 [node name="gnolderSprite" type="AnimatedSprite2D" parent="PlayerArea"]
+z_index = 1
 position = Vector2(0, -30.935)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_e8lch")
@@ -407,7 +408,7 @@ position = Vector2(3, -16.63)
 shape = SubResource("CapsuleShape2D_8nxsv")
 
 [node name="timer_hit" type="Timer" parent="."]
-wait_time = 1.7999999999999998
+wait_time = 1.2
 autostart = true
 
 [node name="SonCaramelos" type="AudioStreamPlayer" parent="."]

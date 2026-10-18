@@ -7,7 +7,7 @@ var puntuaciónTotal = Global.caramelos * Global.tiempo * Global.colec
 func _ready():
 	Global.pararMusica()
 	$Muerte.play()
-	$Label2.set_text("Tiempo total: " + str(Global.tiempo) + "segundos")
+	$Label2.set_text("Tiempo total: " + str(Global.tiempo) + " segundos")
 	$Label3.set_text("Puntuación total: " + str(puntuaciónTotal))
 func _on_exit_pressed() -> void:
 	get_tree().quit()

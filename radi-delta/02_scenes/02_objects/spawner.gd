@@ -37,7 +37,7 @@ func _on_spawn_timer_cars():
 		#var stage_node = get_parent() #no necesario
 		var car_instance = car.instantiate()
 		car_instance.position = ROAD_ARRAY.pick_random()
-		car_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH
+		car_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH  + 500
 		static_holder.add_child(car_instance)
 
 func _on_spawn_timer_buses():
@@ -45,7 +45,7 @@ func _on_spawn_timer_buses():
 	var bus_instance = bus.instantiate()
 	var picklane = ROAD_ARRAY.pick_random()
 	bus_instance.position = picklane
-	bus_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH
+	bus_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH  + 1500
 	static_holder.add_child(bus_instance)
 	$BusPasando.play()
 	$WarningBus2.position = picklane
@@ -56,7 +56,7 @@ func _on_spawn_timer_crossroads():
 	#var stage_node = get_parent() #no necesario
 	var crossroad_instance = crossroad.instantiate()
 	crossroad_instance.position = SPAWN_MID
-	crossroad_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH
+	crossroad_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH + 500
 	#stage_node.add_child(crossroad_instance)
 	#$misPasosDeCebra.add_child(crossroad_instance) !!!!!!AAAAAAAAA""""""""""""
 	static_holder.add_child(crossroad_instance)
@@ -66,7 +66,7 @@ func _on_spawn_timer_collectible():
 	#var stage_node = get_parent() #no necesario
 	var collectible_instance = collectible.instantiate()
 	collectible_instance.position = ROAD_ARRAY.pick_random()
-	collectible_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH
+	collectible_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH + 500
 	static_holder.add_child(collectible_instance)
 
 func _on_spawn_timer_main_road_timeout() -> void:

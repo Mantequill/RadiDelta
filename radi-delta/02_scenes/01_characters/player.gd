@@ -28,6 +28,8 @@ func _ready() -> void:
 	$TopLane.position.y = SPAWN_HEIGHT
 	$MidLane.position.y = SPAWN_HEIGHT + SPAWN_ADD
 	$BotLane.position.y = SPAWN_HEIGHT + (SPAWN_ADD*2)
+	$move_target.position.x = 300
+	player_body.position = $move_target.position
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if scroll_speed < 1800:
@@ -74,7 +76,7 @@ func _on_lane_cd_timeout() -> void: #cooldown spammear arriba abajo
 	
 func _on_steal_cooldown_timeout():
 	steal_cooldown_over = true
-	$PlayerArea/gnolderSprite.play("default")
+	#$PlayerArea/gnolderSprite.play("default")
 
 func _on_timer_hit_timeout():
 	is_hit = false

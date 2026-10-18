@@ -8,6 +8,9 @@ extends Node2D
 
 func _ready():
 	$Timer.start()
+	
+func _process(delta: float) -> void:
+	addScore()
 
 func addScore():
 	$LabelNumCandy.set_text(str(Global.caramelos))
