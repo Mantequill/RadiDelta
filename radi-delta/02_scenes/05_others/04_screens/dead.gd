@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var musica_jam_epica_01: AudioStreamPlayer = $MusicaJamEpica01
 
-var puntuaciónTotal = Global.caramelos * Global.tiempo
+var puntuaciónTotal = Global.caramelos * Global.tiempo * Global.colec
 
 func _ready():
 	Global.pararMusica()

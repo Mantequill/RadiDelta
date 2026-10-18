@@ -4,6 +4,8 @@ extends Node2D
 @onready var dollar = $RumpelDollar
 @onready var burger = $DeliciousAndAppetizingHamburgerWithFreshIngredientsOnTransparentBackgroundFreePng
 var spritenum = 0
+var colecionable_count = 0
+
 
 @onready var myTextures: Array = [
 	preload("res://01_assets/01_sprites/collectible_placeholder.png"),
@@ -29,4 +31,6 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	colecionable_count = +1
+	Global.colec = colecionable_count
 	self.queue_free()

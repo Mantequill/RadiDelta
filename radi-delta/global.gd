@@ -1,5 +1,6 @@
 extends Node
 
+var colec: int
 var tiempo: int
 var caramelos: int
 
