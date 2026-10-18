@@ -7,9 +7,9 @@ var scroll_speed = 100
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	scroll_speed += 1/(t*5+1)
+	if scroll_speed < 1800:
+		scroll_speed += 1/(t*30+1)
 	t += delta *0.005
 	position.x += scroll_speed*delta
