@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://b51ugxwelg4ij"]
+[gd_scene load_steps=13 format=3 uid="uid://b51ugxwelg4ij"]
 
 [ext_resource type="Script" uid="uid://babnc6cfsqoy3" path="res://02_scenes/04_screens/main_menu.gd" id="1_3kh57"]
 [ext_resource type="Texture2D" uid="uid://byeacr5bh3j76" path="res://01_assets/01_sprites/MenuFondo.png" id="2_5oke2"]
 [ext_resource type="AudioStream" uid="uid://lc3sox8ksuc2" path="res://01_assets/03_sound/01_sfx/deadsound.mp3" id="2_7uqsd"]
 [ext_resource type="Texture2D" uid="uid://brugjbggjn5xc" path="res://01_assets/01_sprites/BotonJugar.png" id="3_3644c"]
+[ext_resource type="Texture2D" uid="uid://bmwtxiu5f7wqr" path="res://01_assets/01_sprites/BotonJugar_click.png" id="4_wqqor"]
 [ext_resource type="Texture2D" uid="uid://drdn6u4bqh42k" path="res://01_assets/01_sprites/botonControles.png" id="4_xh1ow"]
 [ext_resource type="Texture2D" uid="uid://c50dmo7whs0ui" path="res://01_assets/01_sprites/botonSalir.png" id="5_50jg3"]
+[ext_resource type="Texture2D" uid="uid://b04vojqqjs32v" path="res://01_assets/01_sprites/BotonJugar_hovered.png" id="5_aboqi"]
+[ext_resource type="Texture2D" uid="uid://di123johvd763" path="res://01_assets/01_sprites/botonControles_click.png" id="7_jk48b"]
+[ext_resource type="Texture2D" uid="uid://d323pqjh37vjx" path="res://01_assets/01_sprites/botonSalir_click.png" id="8_ajec0"]
+[ext_resource type="Texture2D" uid="uid://gpc2a5kk7ve8" path="res://01_assets/01_sprites/botonControles_hovered.png" id="8_e7s3i"]
+[ext_resource type="Texture2D" uid="uid://c2mugmqcwq52v" path="res://01_assets/01_sprites/botonSalir_hovered.png" id="9_yhidp"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_3kh57")
@@ -37,6 +43,8 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 0)
 texture_normal = ExtResource("3_3644c")
+texture_pressed = ExtResource("4_wqqor")
+texture_hover = ExtResource("5_aboqi")
 
 [node name="Rules" type="TextureButton" parent="ButtonManager"]
 layout_mode = 0
@@ -45,6 +53,8 @@ offset_top = 642.0
 offset_right = 1252.0
 offset_bottom = 794.0
 texture_normal = ExtResource("4_xh1ow")
+texture_pressed = ExtResource("7_jk48b")
+texture_hover = ExtResource("8_e7s3i")
 
 [node name="Quit" type="TextureButton" parent="ButtonManager"]
 layout_mode = 0
@@ -53,6 +63,8 @@ offset_top = 815.0
 offset_right = 1185.0
 offset_bottom = 969.0
 texture_normal = ExtResource("5_50jg3")
+texture_pressed = ExtResource("8_ajec0")
+texture_hover = ExtResource("9_yhidp")
 
 [node name="Deadsound" type="AudioStreamPlayer" parent="ButtonManager"]
 stream = ExtResource("2_7uqsd")
