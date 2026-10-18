@@ -28,6 +28,7 @@ func _ready() -> void:
 	$BotLane.position.y = SPAWN_HEIGHT + (SPAWN_ADD*2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	scroll_speed += 1/(t*5+1)
 	t += delta *0.005
 	input_dir = Vector2()
 	if Input.is_key_pressed(KEY_RIGHT) and not(is_hit):
@@ -48,9 +49,9 @@ func _process(delta):
 		lane_cd_over = false
 		$lane_cd.start()
 	player_body.position = player_body.position.lerp($move_target.position, delta*50) #interpolar posición actual de gnomo con posición objetivo.
-	self.position.x += scroll_speed*t # mover """"cámara""""
+	self.position.x += scroll_speed*delta # mover """"cámara""""
 	if is_hit:
-		$move_target.position.x -= scroll_speed*t # mover """"cámara""""
+		$move_target.position.x -= scroll_speed*delta # mover """"cámara""""
 	
 	if Input.is_key_pressed(KEY_E) and steal_cooldown_over:
 		$PlayerArea/gnolderSprite.play("badSteal")
@@ -60,8 +61,7 @@ func _process(delta):
 			candy_count += 10 #Yumm caramelos
 			Global.caramelos = candy_count
 			#señal sprite niño
-	
-	print(scroll_speed*t)
+
 
 func _on_lane_cd_timeout() -> void: #cooldown spammear arriba abajo
 	lane_cd_over = true
@@ -82,12 +82,12 @@ func _on_player_area_entered(area):
 		if area.is_in_group("bus"): #BUS
 			print("BUUUUUS")
 			input_dir.x = -1 #ESTO ESTÁ FATAL HECHO VALE
-			$move_target.position.x -= BUS_SPEED*t
+			$move_target.position.x -= BUS_SPEED*0.05
 			candy_count -= 9
 		else: #OTROS COCHES
 			print("COCHEEEE")
-			input_dir.x = -1 #ESTO ESTÁ FATAL TB
-			$move_target.position.x -= scroll_speed*t
+			input_dir.x = 1 #ESTO ESTÁ FATAL TB
+			$move_target.position.x += -10
 			candy_count -= 6
 	
 	if area.is_in_group("kid"):
