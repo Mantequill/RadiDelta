@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3l5kio0tavhm"]
+[gd_scene load_steps=7 format=3 uid="uid://b3l5kio0tavhm"]
 
 [ext_resource type="PackedScene" uid="uid://v6h6thuygapg" path="res://02_scenes/02_objects/spawner.tscn" id="1_xnd6g"]
 [ext_resource type="PackedScene" uid="uid://bvyf4bfp0uedp" path="res://02_scenes/01_characters/player.tscn" id="2_btoap"]
 [ext_resource type="Script" uid="uid://bkktxrhvrcesy" path="res://02_scenes/03_levels/player_camera.gd" id="2_n1pgd"]
 [ext_resource type="Texture2D" uid="uid://ducio74g4hte5" path="res://01_assets/01_sprites/bgPlaceholder01.png" id="3_btoap"]
+[ext_resource type="PackedScene" uid="uid://brsfjxr4mcwbo" path="res://02_scenes/02_objects/main_road.tscn" id="5_0sgu4"]
+[ext_resource type="PackedScene" uid="uid://bsvc8iwgft7e5" path="res://02_scenes/05_others/04_screens/Play_menu.tscn" id="6_ueof5"]
 
 [node name="main" type="Node2D"]
 
@@ -22,4 +24,9 @@ script = ExtResource("2_n1pgd")
 
 [node name="spawner" parent="Player" instance=ExtResource("1_xnd6g")]
 
+[node name="PlayMenu" parent="Player" instance=ExtResource("6_ueof5")]
+
 [node name="staticChildHolder" type="Node" parent="."]
+
+[node name="main_road" parent="." instance=ExtResource("5_0sgu4")]
+position = Vector2(960, 540)

@@ -10,5 +10,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	scroll_speed += 1/(t*5+1)
 	t += delta *0.005
-	position.x += scroll_speed*t
+	position.x += scroll_speed*delta
