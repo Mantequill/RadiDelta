@@ -58,7 +58,6 @@ gizmo_extents = 14.2
 wait_time = 0.1
 
 [node name="move_target" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1, -1)
 texture = ExtResource("3_e8lch")
 

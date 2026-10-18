@@ -47,8 +47,8 @@ func _on_spawn_timer_crossroads():
 	var crossroad_instance = crossroad.instantiate()
 	crossroad_instance.position = SPAWN_MID
 	crossroad_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH
-	#stage_node.add_child(crossroad_instance)
-	$misPasosDeCebra.add_child(crossroad_instance)
+	static_holder.add_child(crossroad_instance)
+	#$misPasosDeCebra.add_child(crossroad_instance)
 
 func _on_spawn_timer_collectible():
 	#var stage_node = get_parent() #no necesario
