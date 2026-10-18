@@ -8,6 +8,7 @@ var myTextures = [
 	preload("res://01_assets/01_sprites/non_sad_01.png")]
 ]
 var current_number = 0
+var next_to_player = false
 
 const KID_NUMBER = 1 #Esto es uno menos de los que hay realmente !!!!
 
@@ -18,10 +19,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_key_pressed(KEY_E) and next_to_player:
+		_on_kid_killed()
 	#if Input.is_key_pressed(KEY_RIGHT):
 		#_on_kid_killed()
 	#que el area se mueva arriba y abajo modo ping pong
-	pass
+
+func _on_area_entered(area):
+	if area.is_in_group("player02"):
+		next_to_player = true
 
 func _on_kid_killed():
 	mySprite.texture = myTextures[current_number][1]

@@ -13,7 +13,7 @@ func _ready() -> void:
 		kid_instance.position.y = randi_range($markerUp.position.y, $markerDown.position.y)
 		kids_array.append(kid_instance)
 		self.add_child(kid_instance)
-	#spawnear entre niños una o dos veces. Que no sea el mismo.
+	#Queda hacer que compruebe que no es el mismo tipo de niño mmmaybe
 	pass
 	# Replace with function body.
 
@@ -21,7 +21,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	for i in kid_number:
-		kids_array[i-1].position.y += 1
+		kids_array[i-1].position.y += 1 #variable = -variable?? GELP
 		pass
 		
 	pass
