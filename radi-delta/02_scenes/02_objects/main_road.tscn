@@ -1,9 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://brsfjxr4mcwbo"]
+[gd_scene load_steps=6 format=3 uid="uid://brsfjxr4mcwbo"]
 
-[ext_resource type="Texture2D" uid="uid://ducio74g4hte5" path="res://01_assets/01_sprites/bgPlaceholder01.png" id="1_voejv"]
+[ext_resource type="Script" uid="uid://dlpnhmxirjnv" path="res://02_scenes/02_objects/main_road.gd" id="1_nhw5k"]
+[ext_resource type="Texture2D" uid="uid://bhovq2uy4wdyx" path="res://01_assets/01_sprites/road_001_v02.png" id="1_voejv"]
+[ext_resource type="Texture2D" uid="uid://d4g0633l604oe" path="res://01_assets/01_sprites/road_002_v02.png" id="2_iirnp"]
+[ext_resource type="Texture2D" uid="uid://betjn4xkg4m14" path="res://01_assets/01_sprites/road_003_v02.png" id="3_0vwip"]
+[ext_resource type="Texture2D" uid="uid://b81pmuhvqniyd" path="res://01_assets/01_sprites/roadBGseam.png" id="4_0vwip"]
 
 [node name="main_road" type="Node2D"]
+script = ExtResource("1_nhw5k")
 
-[node name="BgPlaceholder01" type="Sprite2D" parent="."]
+[node name="Road001V02" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 texture = ExtResource("1_voejv")
+
+[node name="Road002V02" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+texture = ExtResource("2_iirnp")
+
+[node name="Road003V02" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+texture = ExtResource("3_0vwip")
+
+[node name="RoadBGseam" type="Sprite2D" parent="."]
+z_index = -2
+scale = Vector2(10.8, 1)
+texture = ExtResource("4_0vwip")
