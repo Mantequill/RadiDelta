@@ -1,5 +1,6 @@
 extends Node2D
 
+
 const SPAWN_HEIGHT = 456 #copiado de spawner
 const SPAWN_ADD = 237
 
@@ -77,6 +78,8 @@ func _on_timer_hit_timeout():
 	$PlayerArea/gnolderSprite.play("default")
 
 func _on_player_area_entered(area):
+	if area.is_in_group("killzone"):
+		get_tree().change_scene_to_file("res://02_scenes/05_others/04_screens/dead.tscn")
 	if area.is_in_group("vehicle"): #COCHES
 		is_hit = true
 		print("COCHE COCHE COCHE")
