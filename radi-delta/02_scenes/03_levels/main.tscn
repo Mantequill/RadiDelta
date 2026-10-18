@@ -18,5 +18,3 @@ script = ExtResource("2_n1pgd")
 [node name="Player" parent="." instance=ExtResource("2_btoap")]
 
 [node name="spawner" parent="Player" instance=ExtResource("1_xnd6g")]
-
-[node name="staticChildHolder" type="Node" parent="."]

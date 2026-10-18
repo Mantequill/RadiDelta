@@ -25,6 +25,10 @@ autostart = true
 [node name="spawn_timer_collectible" type="Timer" parent="."]
 autostart = true
 
+[node name="spawn_timer_main_road" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [node name="marker01" type="Marker2D" parent="."]
 scale = Vector2(50, 50)
 
@@ -50,7 +54,7 @@ texture = ExtResource("3_aa2pn")
 [node name="misPasosDeCebra" type="Node2D" parent="."]
 
 [node name="killzone" type="Area2D" parent="."]
-position = Vector2(75, 0)
+position = Vector2(15.175, 0)
 
 [node name="Icon" type="Sprite2D" parent="killzone"]
 position = Vector2(-51, 530)
@@ -65,4 +69,5 @@ shape = SubResource("RectangleShape2D_kjewb")
 [connection signal="timeout" from="spawn_timer_buses" to="." method="_on_spawn_timer_buses"]
 [connection signal="timeout" from="spawn_timer_crossroads" to="." method="_on_spawn_timer_crossroads"]
 [connection signal="timeout" from="spawn_timer_collectible" to="." method="_on_spawn_timer_collectible"]
+[connection signal="timeout" from="spawn_timer_main_road" to="." method="_on_spawn_timer_main_road_timeout"]
 [connection signal="area_entered" from="killzone" to="." method="_on_killzone_area_entered"]
