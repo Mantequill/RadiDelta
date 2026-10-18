@@ -9,11 +9,13 @@ var myTextures = [
 ]
 var current_number = 0
 var next_to_player = false
+var direction_up = true
 
 const KID_NUMBER = 1 #Esto es uno menos de los que hay realmente !!!!
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#self.rotation = 90
 	current_number = randi_range(0,KID_NUMBER)
 	mySprite.texture = myTextures[current_number][0]
 
