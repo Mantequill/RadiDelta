@@ -2,15 +2,21 @@ extends Area2D
 
 @export var mySprite = Sprite2D
 var myTextures = [
-	[preload("res://01_assets/01_sprites/lagarte_happy_01.png"), #niño 1
-	preload("res://01_assets/01_sprites/lagarte_sad_01.png")],
-	[preload("res://01_assets/01_sprites/non_happy_01.png"), #niño 2
-	preload("res://01_assets/01_sprites/non_sad_01.png")]
+	[preload("res://01_assets/01_sprites/lagarte_happy_v02.png"), #niño 1
+	preload("res://01_assets/01_sprites/lagarte_sad_v02.png")],
+	[preload("res://01_assets/01_sprites/non_happy_v02.png"), #niño 2
+	preload("res://01_assets/01_sprites/non_sad_v02.png")],
+	[preload("res://01_assets/01_sprites/enigmag_happy_v01.png"), #niño 3
+	preload("res://01_assets/01_sprites/enigmag_sad_v01.png")],
+	[preload("res://01_assets/01_sprites/lluna_happy_v01.png"), #niño 4
+	preload("res://01_assets/01_sprites/lluna_sad_v01.png"),],
+	[preload("res://01_assets/01_sprites/mantequill_happy_v01.png"), #niño 5
+	preload("res://01_assets/01_sprites/mantequill_sad_v01.png")]
 ]
 var current_number = 0
 var next_to_player = false
 
-const KID_NUMBER = 1 #Esto es uno menos de los que hay realmente !!!!
+const KID_NUMBER = 4 #Esto es uno menos de los que hay realmente !!!!
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
