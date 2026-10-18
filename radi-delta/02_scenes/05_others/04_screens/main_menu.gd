@@ -6,7 +6,8 @@ func _on_start_pressed() -> void:
 
 
 func _on_rules_pressed() -> void:
-	get_tree().change_scene_to_file("res://02_scenes/04_screens/Rules.tscn")
+	print("hshdsh")
+	get_tree().change_scene_to_file("res://02_scenes/05_others/04_screens/Rules.tscn")
 
 func _on_quit_pressed() -> void:
 	$ButtonManager/Deadsound.play()

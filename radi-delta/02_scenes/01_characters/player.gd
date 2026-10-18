@@ -14,7 +14,9 @@ var candy_count = 0
 var lane_array = []
 var current_lane = 1
 var lane_cd_over = true
+var steal_cooldown_over = true
 var is_hit = false
+var next_to_kid = false
 
 @onready var player_body = $PlayerArea
 var input_dir = Vector2()
@@ -49,14 +51,26 @@ func _process(delta):
 	self.position.x += scroll_speed*t # mover """"cámara""""
 	if is_hit:
 		$move_target.position.x -= scroll_speed*t # mover """"cámara""""
+	
+	if Input.is_key_pressed(KEY_E) and steal_cooldown_over and next_to_kid:
+		$PlayerArea/gnolderSprite.play("steal")
+		steal_cooldown_over = false
+		candy_count += 10 #Yumm caramelos
+		#señal sprite niño
+	
+	print(scroll_speed*t)
 
 func _on_lane_cd_timeout() -> void: #cooldown spammear arriba abajo
 	lane_cd_over = true
 	
+func _on_steal_cooldown_timeout():
+	steal_cooldown_over = true
+	$PlayerArea/gnolderSprite.play("default")
+
 func _on_timer_hit_timeout():
 	is_hit = false
 	$PlayerArea/gnolderSprite.play("default")
-	
+
 func _on_player_area_entered(area):
 	if area.is_in_group("vehicle"): #COCHES
 		is_hit = true
@@ -72,8 +86,16 @@ func _on_player_area_entered(area):
 			input_dir.x = -1 #ESTO ESTÁ FATAL TB
 			$move_target.position.x -= scroll_speed*t
 			candy_count -= 6
+	
+	if area.is_in_group("kid"):
+		next_to_kid = true
+
+func _on_player_area_exited(area):
+	if area.is_in_group("kid"):
+		next_to_kid = false
 		
 func _on_player_steal():
+	
 	pass
 	#cambiar sprite
 	#cooldown

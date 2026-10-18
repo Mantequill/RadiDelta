@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cep533iwxul07"]
+
+[ext_resource type="Script" uid="uid://c1fg1nds6d1r" path="res://02_scenes/01_characters/kid.gd" id="1_nxmot"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kupk8"]
+radius = 96.0
+height = 278.0
+
+[node name="kid" type="Area2D" node_paths=PackedStringArray("mySprite") groups=["kid"]]
+script = ExtResource("1_nxmot")
+mySprite = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kupk8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -53,7 +53,7 @@ texture = ExtResource("3_aa2pn")
 
 [node name="misPasosDeCebra" type="Node2D" parent="."]
 
-[node name="killzone" type="Area2D" parent="."]
+[node name="killzone" type="Area2D" parent="." groups=["killzone"]]
 position = Vector2(15.175, 0)
 
 [node name="Icon" type="Sprite2D" parent="killzone"]
