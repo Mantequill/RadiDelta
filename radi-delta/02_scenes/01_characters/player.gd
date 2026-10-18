@@ -52,11 +52,14 @@ func _process(delta):
 	if is_hit:
 		$move_target.position.x -= scroll_speed*t # mover """"cámara""""
 	
-	if Input.is_key_pressed(KEY_E) and steal_cooldown_over and next_to_kid:
-		$PlayerArea/gnolderSprite.play("steal")
-		steal_cooldown_over = false
-		candy_count += 10 #Yumm caramelos
-		#señal sprite niño
+	if Input.is_key_pressed(KEY_E) and steal_cooldown_over:
+		$PlayerArea/gnolderSprite.play("badSteal")
+		if next_to_kid:
+			$PlayerArea/gnolderSprite.play("steal")
+			steal_cooldown_over = false
+			candy_count += 10 #Yumm caramelos
+			Global.caramelos = candy_count
+			#señal sprite niño
 	
 	print(scroll_speed*t)
 
@@ -100,4 +103,6 @@ func _on_player_steal():
 	#cambiar sprite
 	#cooldown
 	#si está en rango
-	
+
+#Donde muera añadir esto:
+# Global.caramelos = candy_count
