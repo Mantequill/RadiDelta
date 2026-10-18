@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duavmkxpjqyt2"
-path="res://.godot/imported/delicious-and-appetizing-hamburger-with-fresh-ingredients-on-transparent-background-free-png.png-91cf3c3a501bed29fbe7052fc65181a1.ctex"
+uid="uid://dcrkjrbqln2ad"
+path="res://.godot/imported/PoliceCar.png-ce0986862e3860d6b6bad35f73c38401.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://01_assets/01_sprites/delicious-and-appetizing-hamburger-with-fresh-ingredients-on-transparent-background-free-png.png"
-dest_files=["res://.godot/imported/delicious-and-appetizing-hamburger-with-fresh-ingredients-on-transparent-background-free-png.png-91cf3c3a501bed29fbe7052fc65181a1.ctex"]
+source_file="res://01_assets/01_sprites/PoliceCar.png"
+dest_files=["res://.godot/imported/PoliceCar.png-ce0986862e3860d6b6bad35f73c38401.ctex"]
 
 [params]
 
