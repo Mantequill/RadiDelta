@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dcno1ynpm1ji6"]
+[gd_scene load_steps=15 format=3 uid="uid://dcno1ynpm1ji6"]
 
 [ext_resource type="Script" uid="uid://d2ad2n16t6u1j" path="res://02_scenes/05_others/04_screens/dead.gd" id="1_bfgqp"]
 [ext_resource type="Texture2D" uid="uid://bs7tbmfpmcuhb" path="res://01_assets/01_sprites/PantallaMuerte.png" id="2_30xeo"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cdtj25fe4y3eg" path="res://01_assets/01_sprites/botonReintentar.png" id="6_8lo10"]
 [ext_resource type="Texture2D" uid="uid://5j3kj62fqcrb" path="res://01_assets/01_sprites/botonReintentar_click.png" id="7_0tbv0"]
 [ext_resource type="Texture2D" uid="uid://cjtq0o2lt2b00" path="res://01_assets/01_sprites/botonReintentar_hovered.png" id="8_fsv0f"]
+[ext_resource type="AudioStream" uid="uid://b7ph6gn3ehpvr" path="res://01_assets/03_sound/01_sfx/muerte.mp3" id="9_tkc5r"]
 
 [sub_resource type="Gradient" id="Gradient_5ht5x"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -146,6 +147,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_ehtmm")
 }
 autoplay = "RESET"
+
+[node name="Muerte" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_tkc5r")
 
 [connection signal="pressed" from="Button_manager/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Button_manager/retry" to="." method="_on_retry_pressed"]
