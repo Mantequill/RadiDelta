@@ -36,10 +36,10 @@ tracks/1/path = NodePath("Label2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(6, 7),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, false, true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -48,10 +48,10 @@ tracks/2/path = NodePath("Label3:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(7, 7.9666667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 7, 7.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, false, true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -60,10 +60,10 @@ tracks/3/path = NodePath("Button_manager:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(7.9333334, 9),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 7.9333334, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_yedfi"]
@@ -95,6 +95,7 @@ offset_bottom = 1072.0
 texture = ExtResource("2_30xeo")
 
 [node name="Button_manager" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -771.0
@@ -123,6 +124,7 @@ texture_pressed = ExtResource("7_0tbv0")
 texture_hover = ExtResource("8_fsv0f")
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 offset_left = 675.0
 offset_top = 268.0
 offset_right = 1059.0
@@ -131,6 +133,7 @@ theme_override_font_sizes/font_size = 60
 text = "Tiempo total:"
 
 [node name="Label3" type="Label" parent="."]
+visible = false
 offset_left = 674.0
 offset_top = 380.0
 offset_right = 1294.0

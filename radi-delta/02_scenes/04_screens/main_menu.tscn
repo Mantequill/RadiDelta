@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b51ugxwelg4ij"]
+[gd_scene load_steps=17 format=3 uid="uid://b51ugxwelg4ij"]
 
 [ext_resource type="Script" uid="uid://babnc6cfsqoy3" path="res://02_scenes/04_screens/main_menu.gd" id="1_3kh57"]
 [ext_resource type="Texture2D" uid="uid://byeacr5bh3j76" path="res://01_assets/01_sprites/MenuFondo.png" id="2_5oke2"]
@@ -12,13 +12,54 @@
 [ext_resource type="Texture2D" uid="uid://d323pqjh37vjx" path="res://01_assets/01_sprites/botonSalir_click.png" id="8_ajec0"]
 [ext_resource type="Texture2D" uid="uid://gpc2a5kk7ve8" path="res://01_assets/01_sprites/botonControles_hovered.png" id="8_e7s3i"]
 [ext_resource type="Texture2D" uid="uid://c2mugmqcwq52v" path="res://01_assets/01_sprites/botonSalir_hovered.png" id="9_yhidp"]
+[ext_resource type="Texture2D" uid="uid://ccuhjgq0lch2r" path="res://01_assets/01_sprites/lOGOdeltas.png" id="13_aboqi"]
+
+[sub_resource type="Animation" id="Animation_aboqi"]
+resource_name = "logo"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LOgOdeltas:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1e-05, 1e-05),
+"update": 0,
+"values": [-0.11519173063162615, 0.11519173063162615]
+}
+
+[sub_resource type="Animation" id="Animation_jk48b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LOgOdeltas:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7s3i"]
+_data = {
+&"RESET": SubResource("Animation_jk48b"),
+&"logo": SubResource("Animation_aboqi")
+}
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_3kh57")
 
 [node name="background" type="TextureRect" parent="."]
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 1930.0
+offset_bottom = 1085.0
 texture = ExtResource("2_5oke2")
 expand_mode = 2
 
@@ -68,6 +109,17 @@ texture_hover = ExtResource("9_yhidp")
 
 [node name="Deadsound" type="AudioStreamPlayer" parent="ButtonManager"]
 stream = ExtResource("2_7uqsd")
+
+[node name="LOgOdeltas" type="Sprite2D" parent="."]
+position = Vector2(1779, 990)
+scale = Vector2(0.23148136, 0.2314814)
+texture = ExtResource("13_aboqi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_e7s3i")
+}
+autoplay = "logo"
 
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="ButtonManager/Rules" to="." method="_on_rules_pressed"]

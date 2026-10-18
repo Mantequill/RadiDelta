@@ -1,10 +1,13 @@
 extends Node2D
 
+var prueba = "hola"
+var tiempo = Global.tiempo
 
 func _ready():
-	pass
-	
-
+	print (tiempo)
+	$Label2.set_text("Tiempo total:" + str(tiempo))
+	print (tiempo)
+	$Label3.set_text("Caramelos recogidos:" + prueba)
 func _on_exit_pressed() -> void:
 	get_tree().quit()
 

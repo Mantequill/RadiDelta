@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbeawjt04g1q2"
-path="res://.godot/imported/60ba43af56e5d76c6cd25031dcc390da.jpg-e4a7c2a9b3a26a11693c8ee5a4df942a.ctex"
+uid="uid://ccuhjgq0lch2r"
+path="res://.godot/imported/lOGOdeltas.png-fcda983ce409a121c41d88049813f8dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://01_assets/01_sprites/60ba43af56e5d76c6cd25031dcc390da.jpg"
-dest_files=["res://.godot/imported/60ba43af56e5d76c6cd25031dcc390da.jpg-e4a7c2a9b3a26a11693c8ee5a4df942a.ctex"]
+source_file="res://01_assets/01_sprites/lOGOdeltas.png"
+dest_files=["res://.godot/imported/lOGOdeltas.png-fcda983ce409a121c41d88049813f8dd.ctex"]
 
 [params]
 
