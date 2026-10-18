@@ -20,9 +20,9 @@ var is_crossroad_onscreen = false
 var last_spawned_road_pos = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$marker01.position.x = SPAWN_WIDTH
-	$marker02.position.x = SPAWN_WIDTH
-	$marker03.position.x = SPAWN_WIDTH
+	$marker01.position.x = SPAWN_WIDTH + 500
+	$marker02.position.x = SPAWN_WIDTH + 500
+	$marker03.position.x = SPAWN_WIDTH + 500
 	
 	$marker01.position.y = SPAWN_HEIGHT
 	$marker02.position.y = SPAWN_HEIGHT + SPAWN_ADD
@@ -43,9 +43,14 @@ func _on_spawn_timer_cars():
 func _on_spawn_timer_buses():
 	#var stage_node = get_parent() #no necesario
 	var bus_instance = bus.instantiate()
-	bus_instance.position = ROAD_ARRAY.pick_random()
+	var picklane = ROAD_ARRAY.pick_random()
+	bus_instance.position = picklane
 	bus_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH
 	static_holder.add_child(bus_instance)
+	$BusPasando.play()
+	$WarningBus2.position = picklane
+	$WarningBus.play("WarningBus")
+	
 
 func _on_spawn_timer_crossroads():
 	#var stage_node = get_parent() #no necesario
