@@ -1,13 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvyf4bfp0uedp"]
+[gd_scene load_steps=9 format=3 uid="uid://bvyf4bfp0uedp"]
 
 [ext_resource type="Script" uid="uid://bvp5tjh2yftxs" path="res://02_scenes/01_characters/player.gd" id="1_8nxsv"]
 [ext_resource type="Texture2D" uid="uid://dnc8gcuylqv23" path="res://01_assets/01_sprites/placeGnolder.png" id="1_un0qr"]
+[ext_resource type="Texture2D" uid="uid://bn7jadp5swi26" path="res://01_assets/01_sprites/collectible3_placeholder.png" id="3_03svv"]
 [ext_resource type="Texture2D" uid="uid://dtqq3asgck8ym" path="res://icon.svg" id="3_e8lch"]
 [ext_resource type="Texture2D" uid="uid://b8ow74ljnb0bf" path="res://01_assets/01_sprites/kid_placeholder.png" id="4_nd3oh"]
 [ext_resource type="Texture2D" uid="uid://twbtqc4tlghu" path="res://01_assets/01_sprites/collectible2_placeholder.png" id="5_uokla"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e8lch"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_03svv")
+}],
+"loop": true,
+"name": &"badSteal",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_nd3oh")
@@ -71,7 +80,7 @@ texture = ExtResource("3_e8lch")
 position = Vector2(1.5, -3.500002)
 scale = Vector2(0.2, 0.35)
 sprite_frames = SubResource("SpriteFrames_e8lch")
-animation = &"damage"
+animation = &"steal"
 autoplay = "default"
 
 [node name="PlayerColli" type="CollisionShape2D" parent="PlayerArea"]

@@ -1,18 +1,57 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvwly8tgjjfju"]
+[gd_scene load_steps=11 format=3 uid="uid://bvwly8tgjjfju"]
 
-[ext_resource type="Script" uid="uid://bi4hffro6hw1v" path="res://02_scenes/04_screens/rules.gd" id="1_l8ugq"]
+[ext_resource type="Script" uid="uid://bi4hffro6hw1v" path="res://02_scenes/05_others/04_screens/rules.gd" id="1_l8ugq"]
 [ext_resource type="Texture2D" uid="uid://c0yf2x4a1he3j" path="res://01_assets/01_sprites/Ruruskaado.webp" id="1_sq6qb"]
+[ext_resource type="Texture2D" uid="uid://cw5jit4lragjn" path="res://01_assets/01_sprites/Controles_v02.png" id="2_kpqw3"]
 [ext_resource type="Texture2D" uid="uid://c50dmo7whs0ui" path="res://01_assets/01_sprites/botonSalir.png" id="3_hvst2"]
-[ext_resource type="Texture2D" uid="uid://bic3ovxoh2ig0" path="res://01_assets/01_sprites/Controles.png" id="3_xn3aa"]
 [ext_resource type="Texture2D" uid="uid://d323pqjh37vjx" path="res://01_assets/01_sprites/botonSalir_click.png" id="4_vv7jq"]
 [ext_resource type="Texture2D" uid="uid://c2mugmqcwq52v" path="res://01_assets/01_sprites/botonSalir_hovered.png" id="5_bmer3"]
+[ext_resource type="Texture2D" uid="uid://ccuhjgq0lch2r" path="res://01_assets/01_sprites/lOGOdeltas.png" id="7_cs2fb"]
+
+[sub_resource type="Animation" id="Animation_jk48b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LOgOdeltas:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_aboqi"]
+resource_name = "logo"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LOgOdeltas:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1e-05, 1e-05),
+"update": 0,
+"values": [-0.11519173063162616, 0.11519173063162616]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7s3i"]
+_data = {
+&"RESET": SubResource("Animation_jk48b"),
+&"logo": SubResource("Animation_aboqi")
+}
 
 [node name="Rules" type="Node2D"]
 script = ExtResource("1_l8ugq")
 
 [node name="Controles" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("3_xn3aa")
+texture = ExtResource("2_kpqw3")
 
 [node name="back" type="TextureButton" parent="."]
 offset_left = 32.0
@@ -30,5 +69,16 @@ modulate = Color(1, 1, 1, 0.015686275)
 position = Vector2(932.99994, 566)
 scale = Vector2(0.5577272, 0.7775)
 texture = ExtResource("1_sq6qb")
+
+[node name="LOgOdeltas" type="Sprite2D" parent="."]
+position = Vector2(1779, 990)
+scale = Vector2(0.23148136, 0.2314814)
+texture = ExtResource("7_cs2fb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_e7s3i")
+}
+autoplay = "logo"
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
