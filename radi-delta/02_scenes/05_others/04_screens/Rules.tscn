@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvwly8tgjjfju"]
+
+[ext_resource type="Script" uid="uid://bi4hffro6hw1v" path="res://02_scenes/04_screens/rules.gd" id="1_l8ugq"]
+[ext_resource type="Texture2D" uid="uid://c0yf2x4a1he3j" path="res://01_assets/01_sprites/Ruruskaado.webp" id="1_sq6qb"]
+[ext_resource type="Texture2D" uid="uid://c50dmo7whs0ui" path="res://01_assets/01_sprites/botonSalir.png" id="3_hvst2"]
+[ext_resource type="Texture2D" uid="uid://bic3ovxoh2ig0" path="res://01_assets/01_sprites/Controles.png" id="3_xn3aa"]
+[ext_resource type="Texture2D" uid="uid://d323pqjh37vjx" path="res://01_assets/01_sprites/botonSalir_click.png" id="4_vv7jq"]
+[ext_resource type="Texture2D" uid="uid://c2mugmqcwq52v" path="res://01_assets/01_sprites/botonSalir_hovered.png" id="5_bmer3"]
+
+[node name="Rules" type="Node2D"]
+script = ExtResource("1_l8ugq")
+
+[node name="Controles" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_xn3aa")
+
+[node name="back" type="TextureButton" parent="."]
+offset_left = 32.0
+offset_top = 960.0
+offset_right = 252.0
+offset_bottom = 1048.0
+texture_normal = ExtResource("3_hvst2")
+texture_pressed = ExtResource("4_vv7jq")
+texture_hover = ExtResource("5_bmer3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="rules" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.015686275)
+position = Vector2(932.99994, 566)
+scale = Vector2(0.5577272, 0.7775)
+texture = ExtResource("1_sq6qb")
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
