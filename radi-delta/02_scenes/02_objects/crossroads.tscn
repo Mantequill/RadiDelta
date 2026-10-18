@@ -7,7 +7,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yg3ca"]
 size = Vector2(266, 591)
 
+[sub_resource type="Curve2D" id="Curve2D_yg3ca"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1.3881354, -292.04584, 0, 0, 0, 0, 3.6404686, 9.167442, 0, 0, 0, 0, 3.6404686, 288.5824, 0, 0, 0, 0, -1.6149752, 289.5732, 0, 0, 0, 0, -2.365753, 26.011606, 0, 0, 0, 0, -2.7411416, -291.05502, 0, 0, 0, 0, 1.3881354, -292.04584)
+}
+point_count = 7
+
 [node name="crossroads" type="Node2D"]
+position = Vector2(400, 400)
 script = ExtResource("1_yg3ca")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -18,8 +25,19 @@ texture = ExtResource("1_6mvrn")
 [node name="Crossroad_area" type="Area2D" parent="."]
 
 [node name="crossroad_collision" type="CollisionShape2D" parent="Crossroad_area"]
-position = Vector2(1, -0.5)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_yg3ca")
+
+[node name="Path2D" type="Path2D" parent="Crossroad_area"]
+visible = false
+position = Vector2(-1.3021398, -2.7477438)
+curve = SubResource("Curve2D_yg3ca")
+
+[node name="childPath" type="PathFollow2D" parent="Crossroad_area/Path2D"]
+visible = false
+position = Vector2(3.6404686, 89.88146)
+progress = 381.93933
+rotates = false
 
 [node name="markerUp" type="Marker2D" parent="."]
 position = Vector2(0, -300)
