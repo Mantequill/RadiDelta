@@ -49,6 +49,8 @@ func _process(delta):
 	self.position.x += scroll_speed*t # mover """"cámara""""
 	if is_hit:
 		$move_target.position.x -= scroll_speed*t # mover """"cámara""""
+	
+	print(scroll_speed*t)
 
 func _on_lane_cd_timeout() -> void: #cooldown spammear arriba abajo
 	lane_cd_over = true
