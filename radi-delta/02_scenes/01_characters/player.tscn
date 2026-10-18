@@ -389,19 +389,21 @@ autostart = true
 wait_time = 0.1
 
 [node name="move_target" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1, -1)
 texture = ExtResource("3_e8lch")
 
 [node name="PlayerArea" type="Area2D" parent="." groups=["player02"]]
 
 [node name="gnolderSprite" type="AnimatedSprite2D" parent="PlayerArea"]
+position = Vector2(0, -30.935)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_e8lch")
 animation = &"damage"
 autoplay = "default"
 
 [node name="PlayerColli" type="CollisionShape2D" parent="PlayerArea"]
-position = Vector2(3, -3)
+position = Vector2(3, -16.63)
 shape = SubResource("CapsuleShape2D_8nxsv")
 
 [node name="timer_hit" type="Timer" parent="."]
