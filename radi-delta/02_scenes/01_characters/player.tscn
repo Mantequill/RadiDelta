@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bvyf4bfp0uedp"]
+[gd_scene load_steps=57 format=3 uid="uid://bvyf4bfp0uedp"]
 
 [ext_resource type="Script" uid="uid://bvp5tjh2yftxs" path="res://02_scenes/01_characters/player.gd" id="1_8nxsv"]
 [ext_resource type="Texture2D" uid="uid://b5sxbvqevi1k3" path="res://01_assets/01_sprites/MalStealAnim.png" id="3_03svv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ct02uoihad18l" path="res://01_assets/01_sprites/DamageAnim.png" id="4_qihvd"]
 [ext_resource type="Texture2D" uid="uid://cta1f5m88qml5" path="res://01_assets/01_sprites/gnicholas_idle.png" id="4_uokla"]
 [ext_resource type="Texture2D" uid="uid://cvxobw4ekw06f" path="res://01_assets/01_sprites/robaranim.png" id="6_03svv"]
+[ext_resource type="AudioStream" uid="uid://b1l3gfo1s5vx7" path="res://01_assets/03_sound/01_sfx/SonCaramelos.wav" id="7_qihvd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xt2se"]
 atlas = ExtResource("3_03svv")
@@ -398,7 +399,6 @@ scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_e8lch")
 animation = &"damage"
 autoplay = "default"
-frame_progress = 0.26885027
 
 [node name="PlayerColli" type="CollisionShape2D" parent="PlayerArea"]
 position = Vector2(3, -3)
@@ -407,6 +407,9 @@ shape = SubResource("CapsuleShape2D_8nxsv")
 [node name="timer_hit" type="Timer" parent="."]
 wait_time = 1.7999999999999998
 autostart = true
+
+[node name="SonCaramelos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_qihvd")
 
 [connection signal="timeout" from="steal_cooldown" to="." method="_on_steal_cooldown_timeout"]
 [connection signal="timeout" from="lane_cd" to="." method="_on_lane_cd_timeout"]

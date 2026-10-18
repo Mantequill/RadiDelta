@@ -59,8 +59,10 @@ func _process(delta):
 		$PlayerArea/gnolderSprite.play("badSteal")
 		if next_to_kid:
 			$PlayerArea/gnolderSprite.play("steal")
+			$SonCaramelos.play()
 			steal_cooldown_over = false
 			candy_count += 10 #Yumm caramelos
+			print(candy_count)
 			Global.caramelos = candy_count
 			#señal sprite niño
 
