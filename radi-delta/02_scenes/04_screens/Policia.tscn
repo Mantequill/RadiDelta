@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://cd0537o6qi6tm"]
+
+[ext_resource type="Script" uid="uid://fbwqlrcvvec" path="res://02_scenes/04_screens/policia.gd" id="1_3aa8h"]
+[ext_resource type="Texture2D" uid="uid://0x4d1tjyqi7r" path="res://01_assets/01_sprites/Screenshot_2026-10-17-19-58-36-316.jpg" id="1_dbyqr"]
+[ext_resource type="Texture2D" uid="uid://1r8sdsvalga" path="res://01_assets/01_sprites/Trato.png" id="2_3aa8h"]
+[ext_resource type="Texture2D" uid="uid://c24hwpy00labp" path="res://01_assets/01_sprites/Trato_click.png" id="3_3v0ts"]
+[ext_resource type="Texture2D" uid="uid://dcwvmupd72fdx" path="res://01_assets/01_sprites/Trato_hovered.png" id="4_y6rjx"]
+[ext_resource type="Texture2D" uid="uid://bjlrb1vb64ib7" path="res://01_assets/01_sprites/Truco.png" id="5_8tjgt"]
+[ext_resource type="Texture2D" uid="uid://o4cubuhvu3ab" path="res://01_assets/01_sprites/Truco_click.png" id="6_omfqn"]
+[ext_resource type="Texture2D" uid="uid://lv63nysquswx" path="res://01_assets/01_sprites/Truco_hovered.png" id="7_6vj3r"]
+
+[node name="policiaScene" type="Node2D"]
+script = ExtResource("1_3aa8h")
+
+[node name="Screenshot20261017195836316" type="Sprite2D" parent="."]
+position = Vector2(964.46606, 539.75)
+scale = Vector2(1.064532, 1.064532)
+texture = ExtResource("1_dbyqr")
+
+[node name="Trato" type="TextureButton" parent="."]
+offset_left = 384.0
+offset_top = 839.0
+offset_right = 758.0
+offset_bottom = 1005.0
+texture_normal = ExtResource("2_3aa8h")
+texture_pressed = ExtResource("3_3v0ts")
+texture_hover = ExtResource("4_y6rjx")
+
+[node name="Truco" type="TextureButton" parent="."]
+offset_left = 1151.0
+offset_top = 839.0
+offset_right = 1543.0
+offset_bottom = 1005.0
+texture_normal = ExtResource("5_8tjgt")
+texture_pressed = ExtResource("6_omfqn")
+texture_hover = ExtResource("7_6vj3r")
+
+[connection signal="pressed" from="Trato" to="." method="_on_trato_pressed"]
+[connection signal="pressed" from="Truco" to="." method="_on_truco_pressed"]

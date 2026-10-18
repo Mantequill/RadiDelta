@@ -1,5 +1,6 @@
 extends Node2D
 
+
 const SPAWN_HEIGHT = 456 #copiado de spawner
 const SPAWN_ADD = 237
 
@@ -28,7 +29,9 @@ func _ready() -> void:
 	$BotLane.position.y = SPAWN_HEIGHT + (SPAWN_ADD*2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	scroll_speed += 1/(t*5+1)
+	if scroll_speed < 1800:
+		scroll_speed += 1/(t*30+1)
+	print(scroll_speed)
 	t += delta *0.005
 	input_dir = Vector2()
 	if Input.is_key_pressed(KEY_RIGHT) and not(is_hit):
@@ -57,8 +60,10 @@ func _process(delta):
 		$PlayerArea/gnolderSprite.play("badSteal")
 		if next_to_kid:
 			$PlayerArea/gnolderSprite.play("steal")
+			$SonCaramelos.play()
 			steal_cooldown_over = false
 			candy_count += 10 #Yumm caramelos
+			print(candy_count)
 			Global.caramelos = candy_count
 			#señal sprite niño
 
@@ -75,6 +80,8 @@ func _on_timer_hit_timeout():
 	$PlayerArea/gnolderSprite.play("default")
 
 func _on_player_area_entered(area):
+	if area.is_in_group("killzone"):
+		get_tree().change_scene_to_file("res://02_scenes/05_others/04_screens/dead.tscn")
 	if area.is_in_group("vehicle"): #COCHES
 		is_hit = true
 		print("COCHE COCHE COCHE")

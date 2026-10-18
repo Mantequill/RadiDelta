@@ -1,11 +1,54 @@
-[gd_scene load_steps=5 format=3 uid="uid://v6h6thuygapg"]
+[gd_scene load_steps=11 format=3 uid="uid://v6h6thuygapg"]
 
 [ext_resource type="Script" uid="uid://dth3bq7jivoby" path="res://02_scenes/02_objects/spawner.gd" id="1_qhaml"]
 [ext_resource type="Texture2D" uid="uid://caxw7cy6p2xk8" path="res://04_game/placeGnolder.png" id="3_aa2pn"]
 [ext_resource type="Texture2D" uid="uid://dtqq3asgck8ym" path="res://icon.svg" id="3_yeex3"]
+[ext_resource type="AudioStream" uid="uid://dwxukbega1rpj" path="res://01_assets/03_sound/01_sfx/BusPasando.wav" id="4_yeex3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjewb"]
 size = Vector2(117, 1151)
+
+[sub_resource type="Gradient" id="Gradient_yeex3"]
+colors = PackedColorArray(0, 0, 1, 1, 0, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p75bl"]
+gradient = SubResource("Gradient_yeex3")
+
+[sub_resource type="Animation" id="Animation_jkoii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mv1n6"]
+resource_name = "WarningBus"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.76666665, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qjiyl"]
+_data = {
+&"RESET": SubResource("Animation_jkoii"),
+&"WarningBus": SubResource("Animation_mv1n6")
+}
 
 [node name="spawner" type="Node2D"]
 script = ExtResource("1_qhaml")
@@ -54,7 +97,7 @@ texture = ExtResource("3_aa2pn")
 [node name="misPasosDeCebra" type="Node2D" parent="."]
 
 [node name="killzone" type="Area2D" parent="." groups=["killzone"]]
-position = Vector2(15.175, 0)
+position = Vector2(-131.32, 0)
 
 [node name="Icon" type="Sprite2D" parent="killzone"]
 position = Vector2(-51, 530)
@@ -64,6 +107,22 @@ texture = ExtResource("3_yeex3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 position = Vector2(-68.5, 535.5)
 shape = SubResource("RectangleShape2D_kjewb")
+
+[node name="BusPasando" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yeex3")
+
+[node name="WarningBus2" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.20784314)
+position = Vector2(835.00006, 452.5)
+scale = Vector2(21.6875, 273)
+texture = SubResource("GradientTexture1D_p75bl")
+
+[node name="WarningBus" type="AnimationPlayer" parent="."]
+root_node = NodePath("../WarningBus2")
+libraries = {
+&"": SubResource("AnimationLibrary_qjiyl")
+}
 
 [connection signal="timeout" from="spawn_timer_cars" to="." method="_on_spawn_timer_cars"]
 [connection signal="timeout" from="spawn_timer_buses" to="." method="_on_spawn_timer_buses"]
