@@ -8,13 +8,13 @@ size = Vector2(288.25, 215.75)
 
 [node name="Coche" type="Node2D" node_paths=PackedStringArray("mySprite")]
 script = ExtResource("1_xl1ur")
-mySprite = NodePath("Car_area01/Car_sprite")
-myImage = ExtResource("1_27wkq")
+mySprite = NodePath("Car_area01/Sprite2D")
 
 [node name="Car_area01" type="Area2D" parent="." groups=["vehicle"]]
 position = Vector2(44, 74)
 
 [node name="Car_sprite" type="Sprite2D" parent="Car_area01"]
+visible = false
 position = Vector2(-3, -71)
 scale = Vector2(0.45141065, 0.53499997)
 texture = ExtResource("1_27wkq")
@@ -22,3 +22,12 @@ texture = ExtResource("1_27wkq")
 [node name="Car_hitbox" type="CollisionShape2D" parent="Car_area01"]
 position = Vector2(-3.125, -70.875)
 shape = SubResource("RectangleShape2D_8q56x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Car_area01"]
+position = Vector2(-44, -74)
+
+[node name="timer_waitBus" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="timer_waitBus" to="." method="_on_timer_wait_bus_timeout"]

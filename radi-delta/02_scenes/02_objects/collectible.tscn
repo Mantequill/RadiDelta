@@ -1,24 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx1f42v2erfw0"]
+[gd_scene load_steps=3 format=3 uid="uid://cx1f42v2erfw0"]
 
 [ext_resource type="Script" uid="uid://c2c00lhsumxnr" path="res://02_scenes/02_objects/collectible.gd" id="1_ymyi7"]
-[ext_resource type="Texture2D" uid="uid://duavmkxpjqyt2" path="res://01_assets/01_sprites/delicious-and-appetizing-hamburger-with-fresh-ingredients-on-transparent-background-free-png.png" id="3_i8cqx"]
-[ext_resource type="Texture2D" uid="uid://dqnj1jfaacn8x" path="res://01_assets/01_sprites/RumpelDollar.png" id="4_xy6qi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y26p0"]
 
-[node name="collectible" type="Node2D"]
+[node name="collectible" type="Node2D" node_paths=PackedStringArray("mySprite")]
 script = ExtResource("1_ymyi7")
+mySprite = NodePath("newSprite")
 
-[node name="DeliciousAndAppetizingHamburgerWithFreshIngredientsOnTransparentBackgroundFreePng" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.115, 0.115)
-texture = ExtResource("3_i8cqx")
-
-[node name="RumpelDollar" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(2, -2)
-scale = Vector2(0.555, 0.555)
-texture = ExtResource("4_xy6qi")
+[node name="newSprite" type="Sprite2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
 
