@@ -10,9 +10,7 @@ func _ready():
 	$Timer.start()
 
 func addScore():
-	#$LabelNumCandy.set_text(str(Global.caramelos))
-	$LabelNumCandy.set_text(str("67"))
-	################### Plare
+	$LabelNumCandy.set_text(str(Global.caramelos))
 	
 func _on_timer_timeout() -> void:
 	print(total_time_seconds)
