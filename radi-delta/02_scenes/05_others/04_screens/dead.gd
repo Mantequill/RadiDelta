@@ -1,16 +1,17 @@
 extends Node2D
 
-var prueba = "hola"
-var tiempo = Global.tiempo
+@onready var musica_jam_epica_01: AudioStreamPlayer = $MusicaJamEpica01
 
 func _ready():
-	print (tiempo)
-	$Label2.set_text("Tiempo total:" + str(tiempo))
-	print (tiempo)
-	$Label3.set_text("Caramelos recogidos:" + prueba)
+	$MusicaJamEpica01.stop()
+	$Muerte.play()
+	$Label2.set_text("Tiempo total:" + str(Global.tiempo))
+	$Label3.set_text("Caramelos recogidos:" + str(Global.caramelos))
 func _on_exit_pressed() -> void:
 	get_tree().quit()
 
 
 func _on_retry_pressed() -> void:
-	pass # Replace with function body.
+	Global.caramelos = 0
+	Global.tiempo = 0
+	get_tree().change_scene_to_file("res://02_scenes/03_levels/main.tscn")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://mw3intjf4d0c" path="res://01_assets/01_sprites/crossroad_placeholder.png" id="1_6mvrn"]
 [ext_resource type="Script" uid="uid://drbpbgoj6uvsp" path="res://02_scenes/02_objects/crossroads.gd" id="1_yg3ca"]
+[ext_resource type="Texture2D" uid="uid://bujpkdp0kewqi" path="res://01_assets/01_sprites/Crossroad.png" id="3_cdvwg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yg3ca"]
 size = Vector2(266, 591)
@@ -45,3 +46,7 @@ scale = Vector2(50, 50)
 [node name="markerDown" type="Marker2D" parent="."]
 position = Vector2(0, 300)
 scale = Vector2(50, 50)
+
+[node name="Crossroad" type="Sprite2D" parent="."]
+scale = Vector2(0.765, 0.765)
+texture = ExtResource("3_cdvwg")
