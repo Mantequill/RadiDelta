@@ -13,6 +13,9 @@ var car = preload("res://02_scenes/02_objects/coche.tscn")
 var bus = preload("res://02_scenes/02_objects/bus.tscn")
 var crossroad = preload("res://02_scenes/02_objects/crossroads.tscn")
 var collectible = preload("res://02_scenes/02_objects/collectible.tscn")
+var main_road = preload("res://02_scenes/02_objects/main_road.tscn")
+
+var is_crossroad_onscreen = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,7 +31,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_spawn_timer_cars():
-	if $misPasosDeCebra.get_child_count() <= 0:
+	#if $misPasosDeCebra.get_child_count() <= 0: !!!!!!!AAAAAAAA!!!!!
 		#var stage_node = get_parent() #no necesario
 		var car_instance = car.instantiate()
 		car_instance.position = ROAD_ARRAY.pick_random()
@@ -48,7 +51,9 @@ func _on_spawn_timer_crossroads():
 	crossroad_instance.position = SPAWN_MID
 	crossroad_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH
 	#stage_node.add_child(crossroad_instance)
-	$misPasosDeCebra.add_child(crossroad_instance)
+	#$misPasosDeCebra.add_child(crossroad_instance) !!!!!!AAAAAAAAA""""""""""""
+	static_holder.add_child(crossroad_instance)
+	is_crossroad_onscreen = true
 
 func _on_spawn_timer_collectible():
 	#var stage_node = get_parent() #no necesario
@@ -57,6 +62,13 @@ func _on_spawn_timer_collectible():
 	collectible_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH
 	static_holder.add_child(collectible_instance)
 
+func _on_spawn_timer_main_road_timeout() -> void:
+	var main_road_instance = main_road.instantiate()
+	main_road_instance.position.y = SCREEN_HEIGHT/2
+	main_road_instance.position.x = self.get_parent().position.x + SCREEN_WIDTH
+	#stage_node.add_child(crossroad_instance)
+	#$misPasosDeCebra.add_child(crossroad_instance) !!!!!!AAAAAAAAA""""""""""""
+	static_holder.add_child(main_road_instance)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
