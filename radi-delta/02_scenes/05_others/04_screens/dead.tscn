@@ -1,0 +1,151 @@
+[gd_scene load_steps=14 format=3 uid="uid://dcno1ynpm1ji6"]
+
+[ext_resource type="Script" uid="uid://d2ad2n16t6u1j" path="res://02_scenes/04_screens/dead.gd" id="1_bfgqp"]
+[ext_resource type="Texture2D" uid="uid://bs7tbmfpmcuhb" path="res://01_assets/01_sprites/PantallaMuerte.png" id="2_30xeo"]
+[ext_resource type="Texture2D" uid="uid://c50dmo7whs0ui" path="res://01_assets/01_sprites/botonSalir.png" id="3_bfgqp"]
+[ext_resource type="Texture2D" uid="uid://d323pqjh37vjx" path="res://01_assets/01_sprites/botonSalir_click.png" id="4_ib1er"]
+[ext_resource type="Texture2D" uid="uid://c2mugmqcwq52v" path="res://01_assets/01_sprites/botonSalir_hovered.png" id="5_ehtmm"]
+[ext_resource type="Texture2D" uid="uid://cdtj25fe4y3eg" path="res://01_assets/01_sprites/botonReintentar.png" id="6_8lo10"]
+[ext_resource type="Texture2D" uid="uid://5j3kj62fqcrb" path="res://01_assets/01_sprites/botonReintentar_click.png" id="7_0tbv0"]
+[ext_resource type="Texture2D" uid="uid://cjtq0o2lt2b00" path="res://01_assets/01_sprites/botonReintentar_hovered.png" id="8_fsv0f"]
+
+[sub_resource type="Gradient" id="Gradient_5ht5x"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_db3b3"]
+gradient = SubResource("Gradient_5ht5x")
+
+[sub_resource type="Animation" id="Animation_ib1er"]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("toomb:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.0333333, 5.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 7, 7.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Button_manager:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 7.9333334, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_yedfi"]
+resource_name = "toomb_animation"
+length = 3.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ehtmm"]
+_data = {
+&"RESET": SubResource("Animation_ib1er"),
+&"toomb_animation": SubResource("Animation_yedfi")
+}
+
+[node name="dead" type="Node2D"]
+script = ExtResource("1_bfgqp")
+
+[node name="background" type="TextureRect" parent="."]
+offset_left = -19.0
+offset_top = -19.0
+offset_right = 1932.0
+offset_bottom = 1100.0
+texture = SubResource("GradientTexture1D_db3b3")
+
+[node name="toomb" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -48.0
+offset_top = -8.0
+offset_right = 1872.0
+offset_bottom = 1072.0
+texture = ExtResource("2_30xeo")
+
+[node name="Button_manager" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -771.0
+offset_top = -646.0
+offset_right = -731.0
+offset_bottom = -606.0
+
+[node name="exit" type="TextureButton" parent="Button_manager"]
+layout_mode = 0
+offset_left = 971.0
+offset_top = 1414.0
+offset_right = 1356.0
+offset_bottom = 1568.0
+texture_normal = ExtResource("3_bfgqp")
+texture_pressed = ExtResource("4_ib1er")
+texture_hover = ExtResource("5_ehtmm")
+
+[node name="retry" type="TextureButton" parent="Button_manager"]
+layout_mode = 0
+offset_left = 1988.0
+offset_top = 1416.0
+offset_right = 2589.0
+offset_bottom = 1568.0
+texture_normal = ExtResource("6_8lo10")
+texture_pressed = ExtResource("7_0tbv0")
+texture_hover = ExtResource("8_fsv0f")
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+offset_left = 675.0
+offset_top = 268.0
+offset_right = 1059.0
+offset_bottom = 358.0
+theme_override_font_sizes/font_size = 60
+text = "Tiempo total:"
+
+[node name="Label3" type="Label" parent="."]
+visible = false
+offset_left = 674.0
+offset_top = 380.0
+offset_right = 1294.0
+offset_bottom = 470.0
+theme_override_font_sizes/font_size = 60
+text = "Caramelos recogidos:"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ehtmm")
+}
+autoplay = "RESET"
+
+[connection signal="pressed" from="Button_manager/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Button_manager/retry" to="." method="_on_retry_pressed"]
