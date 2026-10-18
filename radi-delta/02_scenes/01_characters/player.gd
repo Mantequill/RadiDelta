@@ -11,6 +11,7 @@ var scroll_speed = 100
 
 var t = 0.0
 
+
 var candy_count = 0
 var lane_array = []
 var current_lane = 1
@@ -91,11 +92,13 @@ func _on_player_area_entered(area):
 			input_dir.x = -1 #ESTO ESTÁ FATAL HECHO VALE
 			$move_target.position.x -= BUS_SPEED*0.05
 			candy_count -= 9
+			Global.caramelos = candy_count
 		else: #OTROS COCHES
 			print("COCHEEEE")
 			input_dir.x = 1 #ESTO ESTÁ FATAL TB
 			$move_target.position.x += -10
 			candy_count -= 6
+			Global.caramelos = candy_count
 	
 	if area.is_in_group("kid"):
 		next_to_kid = true
