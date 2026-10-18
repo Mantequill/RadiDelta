@@ -28,7 +28,9 @@ func _ready() -> void:
 	$BotLane.position.y = SPAWN_HEIGHT + (SPAWN_ADD*2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	scroll_speed += 1/(t*5+1)
+	if scroll_speed < 1800:
+		scroll_speed += 1/(t*30+1)
+	print(scroll_speed)
 	t += delta *0.005
 	input_dir = Vector2()
 	if Input.is_key_pressed(KEY_RIGHT) and not(is_hit):
