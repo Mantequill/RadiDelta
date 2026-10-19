@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caxw7cy6p2xk8"
-path="res://.godot/imported/placeGnolder.png-aaffbc12cfb233f4f9d00ee0585e5412.ctex"
+uid="uid://bpa7pd4k50qws"
+path="res://.godot/imported/index.icon.png-3168405d80da301f654ab965f8efb47c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://04_game/placeGnolder.png"
-dest_files=["res://.godot/imported/placeGnolder.png-aaffbc12cfb233f4f9d00ee0585e5412.ctex"]
+source_file="res://04_game/index.icon.png"
+dest_files=["res://.godot/imported/index.icon.png-3168405d80da301f654ab965f8efb47c.ctex"]
 
 [params]
 
